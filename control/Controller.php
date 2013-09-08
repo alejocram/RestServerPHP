@@ -32,6 +32,10 @@ class Controller {
         return $this->dao->getContacts();
         //return array('contacts'=>array('id'=>'c199','name'=>'Alejandro Carmona',));
     }
+    
+    public function addContact($Contact){
+        return $this->dao->addContact($Contact);
+    }
 }
 
 ?>

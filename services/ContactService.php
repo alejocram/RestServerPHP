@@ -11,6 +11,14 @@ class ContactService extends Service{
                 case 'showContacts' :
                     return $this->showContacts();
                     break;
+                case 'addContact' :
+                    if (Service::checkParamRequest('Contact')){
+                        $Contact = Contact::getContactObject(json_decode($_POST['Contact']));
+                        return $this->addContact($Contact);
+                    }else{
+                        return getErrorArray('457', "No existe parametro Contact");
+                    } 
+                    break;
             }
         }
     }
@@ -30,6 +38,10 @@ class ContactService extends Service{
 //        echo '</br>'.  json_encode($user).'</br>';
         return ArrayHelper::toArray(Controller::getInstance()->showContacts());
 //        return json_encode(Controller::getInstance()->showContacts());
+    }
+    
+    private function addContact($Contact){
+        return array('id' => Controller::getInstance()->addContact($Contact));
     }
 }
 /**
