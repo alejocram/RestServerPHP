@@ -41,7 +41,7 @@ class ContactService extends Service{
     }
     
     private function addContact($Contact){
-        return array('id' => Controller::getInstance()->addContact($Contact));
+        return array('contact' => Controller::getInstance()->addContact($Contact));
     }
 }
 /**

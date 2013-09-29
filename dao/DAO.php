@@ -39,6 +39,9 @@ class DAO {
         $Contact = new Contact(0, $name, $email, $address, $gender);
         //Realiza el insert en base de datos y pasa el id al objeto de retorno
         $Contact->setId($this->dbEngine->insert($query));
+//TODO dato quemado, recuperar de bd
+        $phone = new Phone('3', '3007778899', '5556644', '1112233');
+        $Contact->setPhone($phone);
         return $Contact;
     }
 }
